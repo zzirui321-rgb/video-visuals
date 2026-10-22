@@ -1,0 +1,7 @@
+interface:
+  display_name: "视频配图：封面、章节与 B-roll"
+  short_description: "保留原画面制作双比例封面，检索真实科学图片与视频制作 B-roll"
+  default_prompt: "使用 $video-visuals 根据我的主题或字幕制作视频配图；如果我只要封面，就只交付 16:9 和 4:3 封面。"
+policy:
+  allow_implicit_invocation: true
+
