@@ -11,11 +11,15 @@ python <skill目录>/scripts/check_assets.py check <输出目录>/assets.json
 
 ## 原创说明动画
 
-原创说明动画使用 `kind: "broll", subtype: "explainer", media_type: "video"`；人物卡动画使用 `subtype: "profile_card"`。原创版式不标为网络媒体本身，嵌入照片仍逐项记录来源和许可。`path` 指向MP4；`static_path` 保留完整静态PNG；`editable_path` 指向分语义组SVG；`animation_path` 指向时序JSON（记录组名、start、fade、顺序、帧率和时长）。静态版列入同一资产的附属文件或 previous_paths，不重复计为时间轴插入。原有资产id、目标start_ms/end_ms与source_cues不变；视频内部source_in_ms从0起，source_out_ms等于实际片长，不能混用目标口播时钟。
+原创说明动画使用 `kind: "broll", subtype: "explainer", media_type: "video"`；人物卡动画使用 `subtype: "profile_card"`。原创版式不标为网络媒体本身，嵌入照片仍逐项记录来源和许可。仅有复杂动效方案而无实际成品时，维持 `planned` 并说明所需表达、可用替代与未满足条件，不填写 approved/visual_checked，不把方案路径当视频。
+
+`path` 指向MP4；`static_path` 保留完整静态PNG；`editable_path` 指向分语义组SVG；`animation_path` 指向时序JSON（记录组名、start、fade、顺序、帧率和时长）。静态版列入同一资产的附属文件或 previous_paths，不重复计为时间轴插入。原有资产id、目标start_ms/end_ms与source_cues不变；视频内部source_in_ms从0起，source_out_ms等于实际片长，不能混用目标口播时钟。
 
 修订后同步更新剪辑表、预览页、来源表中的选用文件；默认不制作压缩包。用户明确要求压缩包时才更新对应包，既有旧包保留。除通用视频检查外，核对出现顺序、每组与相连箭头的关系、最后至少2秒完整展示，以及静态终态与原图一致。
 
 ## 真实图片与视频
+
+B-roll新增可选 `mention_context`（当前字幕实际指向的对象、动作与语境）和 `sourcing_route`（entity/evidence/concept，混合含义选主要路线）；与 `explanation_gain` 一起填写在现有资产项或来源表中，不要求旧清单补齐。它们是选材说明，现有检查器不判断其语义或路线正确性。
 
 B-roll新增可选 `subtype`（scientific_media、news_screenshot、post_screenshot、profile_card、explainer等）、`explanation_gain` 和 `fact_sources`（关键事实及对应URL）。`explanation_gain`由语义判断，写不出具体新增理解就不制作。人物卡/解释图可附 `editable_path`；截图记录 `captured_at`、`published_at`、`event_date`（已知时）及完整原图路径。沿用 kind=broll，无需扩充顶层资产种类，继续参与重叠和密度检查。
 

@@ -5,7 +5,7 @@ from pathlib import Path
 
 FILES = ["SKILL.md", "agents/openai.yaml", "scripts/check_assets.py",
          "scripts/render_svg_reveal.cjs"] + [f"references/{name}.md" for name in
-         ("animation", "cover", "manifest", "sourcing", "styles", "subtitles", "timeline")]
+         ("advanced-motion", "animation", "cover", "manifest", "sourcing", "styles", "subtitles", "timeline")]
 PRIVATE = {"references/account-preferences.md", "references/cover-pdf-notes.md",
            "references/bilibili-cover-guide.md"}
 PREFERENCES = """# 项目偏好（可选）
